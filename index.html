@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome to Scramble.</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="text-center py-5">
+    <h1>Welcome To Scramble</h1>
+  </header>
+  <main id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h2 class="row"><div class="col text-center">{{ points }}</div></h2>
+          <h5 class="row"><div class="col text-center">Points</div></h5>
+        </div>
+        <div class="col text-center">
+          <h2 class="row"><div class="col text-center">{{ strike }}</div></h2>
+          <h5 class="row"><div class="col text-center">Strike</div></h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col"></div>
+        <div class="col text-center success" v-show="success">
+          {{ successMessage }}
+        </div>
+        <div class="col text-center passed" v-show="passed">
+          {{ passedMessage }}
+        </div>
+        <div class="col text-center wrong" v-show="wrong">
+          {{ wrongMessage }}
+        </div>
+        <div class="col"></div>
+      </div>
+
+      <div class="row py-3">
+        <div class="col text-center" v-show="!restart">
+          <h2>{{ currentScrambleWord }}</h2>
+        </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col text-center" v-show="restart">
+          <p>{{ restartMessage }}</p>
+          <button type="button" class="btn btn-dark rounded" @click.prevent="restartGame">Restart</button>         
+        </div>
+      </div>
+      <div class="row py-3">
+        <div class="col"></div>
+        <div class="col-md-8 text-center">
+          <input class="form-control" type="text" v-model="guessedWord" placeholder="Guess The Word" v-on:keyup="keyupCheck">
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row py-2">
+        <div class="col"></div>
+        <div class="col text-center">
+          <p class="wrong" v-show="noPasses">No Pass Left!</p>
+          <button type="button" class="btn btn-danger rounded" @click.prevent="passButton">{{ pass }} Passes Remaining</button>
+        </div>
+        <div class="col"></div>
+      </div>
+      
+    </div>
+  </main>
+  <footer class="text-center fixed-bottom">
+    <p>Copyright 2020 | Made with &#10084; by Parth</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  <script src="scramble.js"></script>
+</body>
+
+</html>

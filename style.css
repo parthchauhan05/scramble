@@ -1,0 +1,16 @@
+.rounded {
+    border-radius: 25px !important;
+}
+
+.success {
+    background-color: #14a24a;
+    color: #ffffff;
+}
+.passed {
+    background-color: yellow;
+    color: #000000;
+}
+.wrong {
+    background-color: red;
+    color: #ffffff;
+}
